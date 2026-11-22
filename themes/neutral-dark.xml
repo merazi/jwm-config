@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<JWM>
+
+	<!-- Neutral dark flat theme with minimal dark-glass title buttons.
+	     All colors are solid (no gradients). Title button icons live in
+	     ~/.config/jwm/icons/xp/ (SVG sources in src/). -->
+
+	<TitleButtonOrder>wtimx</TitleButtonOrder>
+
+	<!-- Names are resolved via the IconPath added in jwmrc (portable across users). -->
+	<ButtonMenu>menu.png</ButtonMenu>
+	<ButtonMenuFocus>menu-focus.png</ButtonMenuFocus>
+	<ButtonMin>min.png</ButtonMin>
+	<ButtonMinFocus>min-focus.png</ButtonMinFocus>
+	<ButtonMax>max.png</ButtonMax>
+	<ButtonMaxFocus>max-focus.png</ButtonMaxFocus>
+	<ButtonMaxActive>restore.png</ButtonMaxActive>
+	<ButtonMaxActiveFocus>restore-focus.png</ButtonMaxActiveFocus>
+	<ButtonClose>close.png</ButtonClose>
+	<ButtonCloseFocus>close-focus.png</ButtonCloseFocus>
+	<DefaultIcon>menu.png</DefaultIcon>
+
+	<WindowStyle decorations="flat">
+		<Font align="left">Liberation Sans-9:bold</Font>
+		<Width>3</Width>
+		<Height>24</Height>
+		<Corner>4</Corner>
+		<Foreground>#aab2bd</Foreground>
+		<Background>#2b3038</Background>
+		<Outline>#1c2128</Outline>
+		<Opacity>1.0</Opacity>
+		<Active>
+			<Foreground>#f2f5fa</Foreground>
+			<Background>#3c4653</Background>
+			<Outline>#202733</Outline>
+			<Opacity>1.0</Opacity>
+		</Active>
+	</WindowStyle>
+
+	<TrayStyle decorations="flat">
+		<Font>Liberation Sans-9</Font>
+		<Foreground>#d7dce3</Foreground>
+		<Background>#2b3038</Background>
+		<Outline>#1c2128</Outline>
+		<Opacity>1.0</Opacity>
+	</TrayStyle>
+
+	<!-- Every tray element uses the same neutral palette. -->
+	<TrayButtonStyle>
+		<Font>Liberation Sans-9:bold</Font>
+		<Foreground>#e6e9ee</Foreground>
+		<Background>#343b45</Background>
+		<Outline>#1c2128</Outline>
+		<Active>
+			<Foreground>#ffffff</Foreground>
+			<Background>#262c34</Background>
+			<Outline>#151a20</Outline>
+		</Active>
+	</TrayButtonStyle>
+
+	<ClockStyle>
+		<Font>Liberation Sans-9</Font>
+		<Foreground>#d7dce3</Foreground>
+		<Background>#343b45</Background>
+	</ClockStyle>
+
+	<TaskListStyle list="desktop" group="true" decorations="flat">
+		<Font>Liberation Sans-9</Font>
+		<Foreground>#d7dce3</Foreground>
+		<Background>#343b45</Background>
+		<Outline>#1c2128</Outline>
+		<Active>
+			<Foreground>#ffffff</Foreground>
+			<Background>#4a5563</Background>
+			<Outline>#202733</Outline>
+		</Active>
+		<Minimized>
+			<Foreground>#9aa5b1</Foreground>
+			<Background>#22272e</Background>
+		</Minimized>
+	</TaskListStyle>
+
+	<PagerStyle>
+		<Font>Liberation Sans-8</Font>
+		<Foreground>#5d6673</Foreground>
+		<Background>#2b3038</Background>
+		<Text>#d7dce3</Text>
+		<Active>
+			<Foreground>#ffffff</Foreground>
+			<Background>#4a5563</Background>
+		</Active>
+	</PagerStyle>
+
+	<MenuStyle decorations="flat">
+		<Font>Liberation Sans-9</Font>
+		<Foreground>#1f242b</Foreground>
+		<Background>#f5f6f7</Background>
+		<Active>
+			<Foreground>#ffffff</Foreground>
+			<Background>#4a5563</Background>
+		</Active>
+		<Opacity>1.0</Opacity>
+	</MenuStyle>
+
+	<PopupStyle>
+		<Font>Liberation Sans-9</Font>
+		<Foreground>#e6e9ee</Foreground>
+		<Background>#3c4653</Background>
+	</PopupStyle>
+
+</JWM>
