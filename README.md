@@ -12,21 +12,23 @@ it works for any user without editing after cloning.
 | `themes/neutral-dark.xml` | `~/.config/jwm/themes/` |
 | `icons/xp/` (PNG + SVG sources) | `~/.config/jwm/icons/xp/` |
 | `assets/wallpaper.jpg` | `~/.config/jwm/wallpaper.jpg` |
+| `extras/jwm-autostart.sh` | `~/.local/bin/jwm-autostart.sh` |
 | `extras/screenshot-tool.sh` | `~/.local/bin/screenshot-tool.sh` |
-| `extras/volumeicon` | `~/.config/volumeicon/volumeicon` |
 | `extras/rofi-config.rasi` | `~/.config/rofi/config.rasi` |
+| `extras/volumeicon` | legacy reference (not installed by default) |
 
-The applications menu uses `xdgmenumaker -i -f jwm` (available on both Arch and
-Debian) instead of `xdg_menu`. `xdgmenumaker` leaves raw `&` characters in JWM
-labels, so the include pipes through `sed` to escape them.
+The applications menu uses `xdgmenumaker -n -i -f jwm` (available on both Arch and
+Debian) instead of `xdg_menu`. If your `xdgmenumaker`/JWM combination produces
+broken labels because of raw `&` characters, pipe the include through `sed` to
+escape them before JWM parses the menu.
 
 ## Dependencies
 
 Arch:
 
 ```sh
-sudo pacman -S jwm rofi xterm thunar volumeicon cbatticon network-manager-applet \
-  scrot xclip libnotify tango-icon-theme liberation-fonts
+sudo pacman -S jwm rofi xterm thunar pasystray cbatticon network-manager-applet \
+  scrot xclip libnotify tango-icon-theme liberation-fonts playerctl wireplumber
 yay -S xdgmenumaker          # AUR
 sudo pacman -S python-xdg gtk3   # xdgmenumaker needs pyxdg + GTK 3 introspection
 ```
@@ -34,10 +36,13 @@ sudo pacman -S python-xdg gtk3   # xdgmenumaker needs pyxdg + GTK 3 introspectio
 Debian / Ubuntu:
 
 ```sh
-sudo apt install jwm rofi xterm thunar volumeicon cbatticon network-manager-gnome \
+sudo apt install jwm rofi xterm thunar pasystray cbatticon network-manager-gnome \
   scrot xclip libnotify-bin tango-icon-theme fonts-liberation xdgmenumaker \
-  python3-xdg gir1.2-gtk-3.0
+  python3-xdg gir1.2-gtk-3.0 playerctl wireplumber
 ```
+
+`wireplumber` provides `wpctl` for the volume/media key bindings; `playerctl`
+is optional for play/pause/next/previous keys.
 
 ## Install
 
@@ -62,9 +67,14 @@ cd ~/jwm-config && git pull && ./install.sh && jwm -restart
 
 - Super/Windows key is the main modifier. `Super+1`/`Super+2` switch desktops,
   `Super+Left`/`Right` snap windows to screen halves, `Super+r` opens rofi.
-- Volume/mute media keys are owned by volumeicon (see `extras/volumeicon`);
-  JWM deliberately does not bind `XF86Audio*` keys.
-- Brightness keys are commented out in `jwmrc`. To enable them, install
-  `brightnessctl`, add your user to the `video` group, and uncomment them.
+- Volume/mute/mic-mute media keys are bound in JWM via `wpctl` (PipeWire/
+  WirePlumber), which works well with `pasystray`.
+- Media play/pause/next/previous keys use `playerctl` (optional dependency).
+- Brightness keys use `brightnessctl`; add your user to the `video` group if
+  needed.
+- Startup tray applets are launched through `~/.local/bin/jwm-autostart.sh`
+  with `pgrep` guards to avoid duplicates on JWM restart.
+- Global window options include `tiled` and `aerosnap`; adjust the `Group`
+  section in `jwmrc` if specific apps need different behavior.
 - To try another theme, add the XML file under `themes/` and change the single
   `<Include>` line in `jwmrc` (or in `~/.config/jwm/themes/` after install).

@@ -14,7 +14,6 @@ fi
 mkdir -p -- \
 	"$HOME/.config/jwm/themes" \
 	"$HOME/.config/jwm/icons/xp" \
-	"$HOME/.config/volumeicon" \
 	"$HOME/.config/rofi" \
 	"$HOME/.local/bin" \
 	"$HOME/Pictures/Screenshots"
@@ -23,8 +22,8 @@ cp -f -- "$repo/jwmrc" "$HOME/.jwmrc"
 cp -f -- "$repo/themes/"*.xml "$HOME/.config/jwm/themes/"
 cp -Rf -- "$repo/icons/xp/." "$HOME/.config/jwm/icons/xp/"
 cp -f -- "$repo/assets/wallpaper.jpg" "$HOME/.config/jwm/wallpaper.jpg"
+install -m 755 -- "$repo/extras/jwm-autostart.sh" "$HOME/.local/bin/jwm-autostart.sh"
 install -m 755 -- "$repo/extras/screenshot-tool.sh" "$HOME/.local/bin/screenshot-tool.sh"
-cp -f -- "$repo/extras/volumeicon" "$HOME/.config/volumeicon/volumeicon"
 cp -f -- "$repo/extras/rofi-config.rasi" "$HOME/.config/rofi/config.rasi"
 
 echo "Validating configuration..."
