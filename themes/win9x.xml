@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<JWM>
+
+	<!-- Windows 9x: silver #c0c0c0 chrome, beveled "motif" edges,
+	     a navy-to-blue gradient on the active title bar, gray inactive
+	     title bars, and 16px pixel-style title buttons.
+	     Title button icons live in ~/.config/jwm/icons/win9x/
+	     (SVG sources in src/). For the flat Windows 95 look, change the
+	     active WindowStyle Background to a single #000080. -->
+
+	<TitleButtonOrder>wtimx</TitleButtonOrder>
+
+	<!-- Resolved via the IconPath added in jwmrc. Win9x buttons look the
+	     same whether the window is focused or not, so both states share
+	     the same PNG files. -->
+	<ButtonMenu>menu.png</ButtonMenu>
+	<ButtonMenuFocus>menu.png</ButtonMenuFocus>
+	<ButtonMin>min.png</ButtonMin>
+	<ButtonMinFocus>min.png</ButtonMinFocus>
+	<ButtonMax>max.png</ButtonMax>
+	<ButtonMaxFocus>max.png</ButtonMaxFocus>
+	<ButtonMaxActive>restore.png</ButtonMaxActive>
+	<ButtonMaxActiveFocus>restore.png</ButtonMaxActiveFocus>
+	<ButtonClose>close.png</ButtonClose>
+	<ButtonCloseFocus>close.png</ButtonCloseFocus>
+	<DefaultIcon>menu.png</DefaultIcon>
+
+	<WindowStyle decorations="motif">
+		<Font align="left">Liberation Sans-8:bold</Font>
+		<Width>3</Width>
+		<Height>20</Height>
+		<Corner>0</Corner>
+		<Foreground>#c0c0c0</Foreground>
+		<Background>#808080</Background>
+		<!-- Motif outlines are down:up; top/left is light, bottom/right dark. -->
+		<Outline>#808080:#dfdfdf</Outline>
+		<Opacity>1.0</Opacity>
+		<Active>
+			<Foreground>#ffffff</Foreground>
+			<!-- Horizontal gradient: dark navy at left, Win98 blue at right. -->
+			<Background>#000080:#1084d0</Background>
+			<Outline>#000000:#ffffff</Outline>
+			<Opacity>1.0</Opacity>
+		</Active>
+	</WindowStyle>
+
+	<TrayStyle decorations="motif">
+		<Font>Liberation Sans-8:bold</Font>
+		<Foreground>#000000</Foreground>
+		<Background>#c0c0c0</Background>
+		<Outline>#808080:#ffffff</Outline>
+		<Opacity>1.0</Opacity>
+	</TrayStyle>
+
+	<TrayButtonStyle>
+		<Font>Liberation Sans-8:bold</Font>
+		<Foreground>#000000</Foreground>
+		<Background>#c0c0c0</Background>
+		<Outline>#808080:#ffffff</Outline>
+		<Active>
+			<Foreground>#000000</Foreground>
+			<Background>#c0c0c0</Background>
+			<!-- Pressed buttons flip to a sunken bevel. -->
+			<Outline>#ffffff:#808080</Outline>
+		</Active>
+	</TrayButtonStyle>
+
+	<ClockStyle>
+		<Font>Liberation Sans-8</Font>
+		<Foreground>#000000</Foreground>
+		<Background>#c0c0c0</Background>
+	</ClockStyle>
+
+	<!-- Win9x showed one button per window, so grouping is off. -->
+	<TaskListStyle list="desktop" group="false" decorations="motif">
+		<Font>Liberation Sans-8</Font>
+		<Foreground>#000000</Foreground>
+		<Background>#c0c0c0</Background>
+		<Outline>#808080:#ffffff</Outline>
+		<Active>
+			<Foreground>#000000</Foreground>
+			<Background>#c0c0c0</Background>
+			<Outline>#ffffff:#808080</Outline>
+		</Active>
+		<Minimized>
+			<Foreground>#808080</Foreground>
+			<Background>#c0c0c0</Background>
+			<Outline>#808080:#ffffff</Outline>
+		</Minimized>
+	</TaskListStyle>
+
+	<PagerStyle>
+		<Font>Liberation Sans-8</Font>
+		<Foreground>#808080</Foreground>
+		<Background>#c0c0c0</Background>
+		<Text>#000000</Text>
+		<Active>
+			<Foreground>#ffffff</Foreground>
+			<Background>#000080</Background>
+		</Active>
+	</PagerStyle>
+
+	<MenuStyle decorations="motif">
+		<Font>Liberation Sans-8</Font>
+		<Foreground>#000000</Foreground>
+		<Background>#c0c0c0</Background>
+		<Outline>#000000:#ffffff</Outline>
+		<Active>
+			<Foreground>#ffffff</Foreground>
+			<Background>#000080</Background>
+		</Active>
+		<Opacity>1.0</Opacity>
+	</MenuStyle>
+
+	<!-- The classic pale-yellow tooltip. -->
+	<PopupStyle>
+		<Font>Liberation Sans-8</Font>
+		<Foreground>#000000</Foreground>
+		<Background>#ffffe1</Background>
+		<Outline>#000000</Outline>
+	</PopupStyle>
+
+</JWM>

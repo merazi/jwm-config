@@ -2,17 +2,24 @@
 <JWM>
 
 	<!-- Startup Applications -->
-	<!-- Autostart script guards against duplicate applets on JWM restart. -->
-	<StartupCommand>exec:$HOME/.local/bin/jwm-autostart.sh</StartupCommand>
-	<RestartCommand>exec:$HOME/.local/bin/jwm-autostart.sh</RestartCommand>
+	<!-- JWM runs these with /bin/sh -c; "exec:" is only special for
+		config includes, not for startup/restart commands. -->
+	<StartupCommand>$HOME/.local/bin/jwm-autostart.sh</StartupCommand>
+	<RestartCommand>$HOME/.local/bin/jwm-autostart.sh</RestartCommand>
 
 	<!-- Desktop menu: JWM controls first, then the XDG applications menu.
-		xdgmenumaker works on both Arch and Debian. Its JWM output leaves raw
-	"&" in labels, so escape it before JWM parses it. -->
+		xdgmenumaker works on both Arch and Debian, but its output contains a
+		raw ampersand in a shell command. The sed pipeline escapes it into a
+		valid XML entity; \x26 avoids bare ampersands in this config. -->
 	<RootMenu onroot="13">
-		<Include>exec: xdgmenumaker -n -i -f jwm</Include>
+		<!-- Win9x-style Start menu: apps live under Programs. -->
+		<Include>exec: xdgmenumaker -n -i -f jwm | sed 's/\x26amp;/\x26/g; s/\x26/\x26amp;/g'</Include>
 		<Separator/>
-		<Menu label="JWM">
+		<Program label="Run...">exec:rofi -combi-modi window,drun,ssh -show combi -show-icons</Program>
+		<Separator/>
+		<Menu label="Shut Down...">
+			<Program label="Lock Screen">lock-screen.sh</Program>
+			<Separator/>
 			<Program label="Restart JWM">jwm -restart</Program>
 			<Program label="Exit JWM">jwm -exit</Program>
 		</Menu>
@@ -29,23 +36,28 @@
 		<Option>notitle</Option>
 	</Group>
 
-	<!-- Tray / Task Bar at the top. -->
-	<Tray x="0" y="0" valign="top" autohide="off" delay="1000">
-		<TrayButton label="Arch BTW">root:1</TrayButton>
+	<!-- Windows 9x style task bar at the bottom: Start on the left,
+	     task buttons in the middle, clock and tray icons on the right. -->
+	<Tray x="0" y="-1" height="28" autohide="off" delay="1000">
+		<TrayButton icon="start.png" label="Start">root:1</TrayButton>
 		<Spacer width="2"/>
-		<Pager labeled="true"/>
+		<Pager labeled="false"/>
 		<TaskList maxwidth="180"/>
 		<Dock/>
 		<Clock format="%-I:%M %p"/>
 		<Spacer width="2"/>
-		<TrayButton label="[/]">showdesktop</TrayButton>
+		<TrayButton label="Show Desktop">showdesktop</TrayButton>
 	</Tray>
 
-	<!-- Visual styles: neutral dark flat theme.
-	Swap this single Include to switch themes. -->
-	<Include>$HOME/.config/jwm/themes/neutral-dark.xml</Include>
+	<!-- Visual styles: Windows 9x theme.
+	Swap this single Include to switch themes (see README). -->
+	<Include>$HOME/.config/jwm/themes/win9x.xml</Include>
 
-	<!-- Path where icons can be found. -->
+	<!-- Paths where icons can be found. Theme icons come first;
+	     xp stays as a fallback for anything missing. -->
+	<IconPath>
+		$HOME/.config/jwm/icons/win9x
+	</IconPath>
 	<IconPath>
 		$HOME/.config/jwm/icons/xp
 	</IconPath>
@@ -119,12 +131,15 @@
 	<Key mask="4" key="Down">restore</Key>
 
 	<!-- Terminal / launcher. Dropping rofi's -show-icons saves icon lookups. -->
-	<Key mask="CA" key="t">exec:xterm</Key>
-	<Key mask="4" key="Return">exec:xterm</Key>
+	<Key mask="CA" key="t">exec:lxterminal</Key>
+	<Key mask="4" key="Return">exec:lxterminal</Key>
 	<Key mask="4" key="r">exec:rofi -combi-modi window,drun,ssh -show combi -show-icons</Key>
 
 	<!-- Wallpaper picker with rofi -->
 	<Key mask="4" key="w">exec:set-wallpaper.sh</Key>
+
+	<!-- Lock screen -->
+	<Key mask="4" key="l">exec:lock-screen.sh</Key>
 
 	<!-- Brightness keys need brightnessctl + video group (see notes):-->
 	<Key key="XF86MonBrightnessUp">exec:brightnessctl set 5%+</Key>

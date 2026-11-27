@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<JWM>
+
+	<!-- Monolith: a pure-grayscale, flat, hairline theme.
+	     No accent hue: inactive chrome is #17191b, focused chrome #24282b,
+	     text shifts from muted gray to near-white. Buttons are thin-line
+	     glyphs in ~/.config/jwm/icons/monolith (SVG sources in src/). -->
+
+	<TitleButtonOrder>wtimx</TitleButtonOrder>
+
+	<!-- Resolved through the IconPath in jwmrc, so this works for any user. -->
+	<ButtonMenu>menu.png</ButtonMenu>
+	<ButtonMenuFocus>menu-focus.png</ButtonMenuFocus>
+	<ButtonMin>min.png</ButtonMin>
+	<ButtonMinFocus>min-focus.png</ButtonMinFocus>
+	<ButtonMax>max.png</ButtonMax>
+	<ButtonMaxFocus>max-focus.png</ButtonMaxFocus>
+	<ButtonMaxActive>restore.png</ButtonMaxActive>
+	<ButtonMaxActiveFocus>restore-focus.png</ButtonMaxActiveFocus>
+	<ButtonClose>close.png</ButtonClose>
+	<ButtonCloseFocus>close-focus.png</ButtonCloseFocus>
+	<DefaultIcon>menu.png</DefaultIcon>
+
+	<WindowStyle decorations="flat">
+		<Font align="left">Liberation Sans-9</Font>
+		<Width>2</Width>
+		<Height>22</Height>
+		<Corner>4</Corner>
+		<Foreground>#7f878d</Foreground>
+		<Background>#17191b</Background>
+		<Outline>#08090a</Outline>
+		<Opacity>1.0</Opacity>
+		<Active>
+			<Foreground>#f4f6f6</Foreground>
+			<Background>#24282b</Background>
+			<Outline>#383e42</Outline>
+			<Opacity>1.0</Opacity>
+		</Active>
+	</WindowStyle>
+
+	<TrayStyle decorations="flat">
+		<Font>Liberation Sans-9</Font>
+		<Foreground>#d5d9db</Foreground>
+		<Background>#111315</Background>
+		<Outline>#08090a</Outline>
+		<Opacity>1.0</Opacity>
+	</TrayStyle>
+
+	<TrayButtonStyle>
+		<Font>Liberation Sans-9</Font>
+		<Foreground>#c9ced1</Foreground>
+		<Background>#1b1e20</Background>
+		<Outline>#08090a</Outline>
+		<Active>
+			<Foreground>#ffffff</Foreground>
+			<Background>#2b3033</Background>
+			<Outline>#383e42</Outline>
+		</Active>
+	</TrayButtonStyle>
+
+	<ClockStyle>
+		<Font>Liberation Sans-9</Font>
+		<Foreground>#d5d9db</Foreground>
+		<Background>#1b1e20</Background>
+	</ClockStyle>
+
+	<TaskListStyle list="desktop" group="true" decorations="flat">
+		<Font>Liberation Sans-9</Font>
+		<Foreground>#aab1b6</Foreground>
+		<Background>#1b1e20</Background>
+		<Outline>#08090a</Outline>
+		<Active>
+			<Foreground>#ffffff</Foreground>
+			<Background>#2b3033</Background>
+			<Outline>#383e42</Outline>
+		</Active>
+		<Minimized>
+			<Foreground>#656d72</Foreground>
+			<Background>#0e1011</Background>
+		</Minimized>
+	</TaskListStyle>
+
+	<PagerStyle>
+		<Font>Liberation Sans-8</Font>
+		<Foreground>#4d5459</Foreground>
+		<Background>#111315</Background>
+		<Text>#9ba3a8</Text>
+		<Active>
+			<Foreground>#ffffff</Foreground>
+			<Background>#2b3033</Background>
+		</Active>
+	</PagerStyle>
+
+	<MenuStyle decorations="flat">
+		<Font>Liberation Sans-9</Font>
+		<Foreground>#d9dddf</Foreground>
+		<Background>#16191b</Background>
+		<Active>
+			<Foreground>#ffffff</Foreground>
+			<Background>#2b3033</Background>
+		</Active>
+		<Opacity>1.0</Opacity>
+	</MenuStyle>
+
+	<PopupStyle>
+		<Font>Liberation Sans-9</Font>
+		<Foreground>#eceeef</Foreground>
+		<Background>#24282b</Background>
+	</PopupStyle>
+
+</JWM>
