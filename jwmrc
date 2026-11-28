@@ -38,7 +38,7 @@
 
 	<!-- Windows 9x style task bar at the bottom: Start on the left,
 	     task buttons in the middle, clock and tray icons on the right. -->
-	<Tray x="0" y="-1" height="28" autohide="off" delay="1000">
+	<Tray x="0" y="0" height="28" autohide="off" delay="1000">
 		<TrayButton icon="start.png" label="Start">root:1</TrayButton>
 		<Spacer width="2"/>
 		<Pager labeled="false"/>
@@ -46,7 +46,7 @@
 		<Dock/>
 		<Clock format="%-I:%M %p"/>
 		<Spacer width="2"/>
-		<TrayButton label="Show Desktop">showdesktop</TrayButton>
+		<TrayButton label="_">showdesktop</TrayButton>
 	</Tray>
 
 	<!-- Visual styles: Windows 9x theme.
@@ -131,8 +131,8 @@
 	<Key mask="4" key="Down">restore</Key>
 
 	<!-- Terminal / launcher. Dropping rofi's -show-icons saves icon lookups. -->
-	<Key mask="CA" key="t">exec:lxterminal</Key>
-	<Key mask="4" key="Return">exec:lxterminal</Key>
+	<Key mask="CA" key="t">exec:qterminal</Key>
+	<Key mask="4" key="Return">exec:qterminal</Key>
 	<Key mask="4" key="r">exec:rofi -combi-modi window,drun,ssh -show combi -show-icons</Key>
 
 	<!-- Wallpaper picker with rofi -->

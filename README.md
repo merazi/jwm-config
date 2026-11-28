@@ -72,11 +72,12 @@ cd ~/jwm-config && git pull && ./install.sh && jwm -restart
 Three themes ship with this config:
 
 - `win9x.xml` (default): Windows 9x look — silver `#c0c0c0` chrome, beveled
-  "motif" edges, a navy-to-blue active title bar, gray inactive title bars,
+  "motif" edges, a deep-purple-to-orchid active title bar (`#2d005c:#8e44ad`),
+  gray inactive title bars, indigo (`#4b0082`) menu/pager highlights,
   pale-yellow tooltips, and 16px pixel-style buttons (`icons/win9x/`). The task
   bar sits at the bottom with a Start button, a Programs menu, and a Run...
-  entry. For the solid Windows 95 title bar, change the active `Background` in
-  `themes/win9x.xml` from `#000080:#1084d0` to `#000080`.
+  entry. For a solid purple title bar, change the active `Background` in
+  `themes/win9x.xml` from `#2d005c:#8e44ad` to `#2d005c`.
 - `monolith.xml`: pure grayscale, flat surfaces, hairline borders, a compact
   title bar, and transparent thin-line buttons (`icons/monolith/`).
 - `neutral-dark.xml`: slightly warmer blue-gray neutrals with shaded,
@@ -93,7 +94,8 @@ theme's `src/` folder and re-render, for example from `icons/win9x/`:
 rsvg-convert -w 18 -h 18 src/<name>.svg -o <name>.png
 ```
 
-The Start button flag is rendered at 16x16 instead. The theme uses Liberation
+The Start button flag is rendered at 16x16 and uses silver/purple tones instead
+of the classic four colors. The theme uses Liberation
 Sans 8 as a stand-in for MS Sans Serif; if you have the real MS fonts installed,
 replace `Liberation Sans-8` with `MS Sans Serif-8` in the theme file.
 

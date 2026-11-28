@@ -4,7 +4,7 @@
   <g shape-rendering="crispEdges">
     <path d="M3 3h13v13H3z" fill="#000000"/>
     <path d="M4 4h11v11H4z" fill="#c0c0c0"/>
-    <path d="M4 4h11v3H4z" fill="#000080"/>
+    <path d="M4 4h11v3H4z" fill="#4b0082"/>
     <path d="M12 5h2v1h-2z" fill="#ffffff"/>
     <path d="M5 9h8v1H5zM5 11h6v1H5z" fill="#808080"/>
   </g>
